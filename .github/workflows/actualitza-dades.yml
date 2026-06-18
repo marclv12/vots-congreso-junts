@@ -1,0 +1,60 @@
+name: Actualitza dades Congreso
+
+on:
+  workflow_dispatch:
+    inputs:
+      full:
+        description: 'Rebaixar tota la legislatura?'
+        required: true
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+  schedule:
+    - cron: '30 6 * * 1-5'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: visor_congreso_github_v2
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Python de GitHub
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instal·la dependències
+        run: pip install -r requirements.txt
+
+      - name: Genera dades completes o incrementals
+        shell: bash
+        run: |
+          if [[ "${{ github.event_name }}" == "schedule" ]]; then
+            START=$(date -u -d '45 days ago' +%F)
+            python scripts/build_data.py --start "$START" --merge-existing
+          elif [[ "${{ github.event.inputs.full }}" == "true" ]]; then
+            python scripts/build_data.py --start 2023-08-17
+          else
+            START=$(date -u -d '60 days ago' +%F)
+            python scripts/build_data.py --start "$START" --merge-existing
+          fi
+
+      - name: Desa dades al repositori
+        run: |
+          cd ..
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm -f --ignore-unmatch visor_congreso_github_v2/data/votacions.json
+          git add -A visor_congreso_github_v2/data
+          git diff --cached --quiet && echo "Sense canvis" || git commit -m "Actualitza dades de votacions"
+          git push
