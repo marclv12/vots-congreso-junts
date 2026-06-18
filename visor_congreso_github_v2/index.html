@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Visor votacions Congreso · XV legislatura</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Open Data Congreso · XV legislatura</p>
+      <h1>Visor de votacions</h1>
+      <p class="subtitle">Cerca ràpida: qui ha votat què, quantes vegades, per diputat, grup i iniciativa.</p>
+    </div>
+    <div class="actions">
+      <button id="refreshBtn">Recarrega dades</button>
+      <button id="csvBtn">Exporta CSV filtrat</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="cards" id="kpis"></section>
+
+    <section class="panel filters">
+      <div class="filter-wide">
+        <label>Cerca lliure</label>
+        <input id="q" type="search" placeholder="Diputat, grup, títol, sessió, votació..." />
+      </div>
+      <div>
+        <label>Diputat</label>
+        <input id="memberFilter" list="membersList" placeholder="Ex. Nogueras" />
+        <datalist id="membersList"></datalist>
+      </div>
+      <div>
+        <label>Grup</label>
+        <select id="groupFilter"><option value="">Tots</option></select>
+      </div>
+      <div>
+        <label>Tipus</label>
+        <select id="typeFilter">
+          <option value="">Totes</option>
+          <option>Projecte de llei</option>
+          <option>Proposició de llei</option>
+          <option>Moció</option>
+          <option>PNL</option>
+          <option>RDL / convalidació</option>
+          <option>Pressupostos</option>
+          <option>Elecció / designació</option>
+          <option>Dictamen / informe</option>
+          <option>Altres</option>
+        </select>
+      </div>
+      <div>
+        <label>Sentit del vot</label>
+        <select id="voteFilter">
+          <option value="">Tots</option>
+          <option>Sí</option>
+          <option>No</option>
+          <option>Abstención</option>
+          <option>No vota</option>
+        </select>
+      </div>
+      <div>
+        <label>Des de</label>
+        <input id="dateFrom" type="date" />
+      </div>
+      <div>
+        <label>Fins a</label>
+        <input id="dateTo" type="date" />
+      </div>
+      <div class="filter-reset">
+        <label>&nbsp;</label>
+        <button id="clearFiltersBtn" type="button">Neteja filtres</button>
+      </div>
+    </section>
+
+    <section class="tabs">
+      <button class="tab active" data-tab="resum">Resum</button>
+      <button class="tab" data-tab="diputats">Per diputat</button>
+      <button class="tab" data-tab="grups">Per grup</button>
+      <button class="tab" data-tab="comparativa">Comparativa</button>
+      <button class="tab" data-tab="iniciativa">Iniciativa</button>
+      <button class="tab" data-tab="votacions">Votacions</button>
+    </section>
+
+    <section class="panel" id="tab-resum">
+      <h2>Resultat filtrat</h2>
+      <div id="summaryGrid" class="summary-grid"></div>
+      <p class="hint">Consell: escriu “Junts”, “Nogueras”, “Sánchez”, “habitatge”, “122/...” o qualsevol paraula del títol.</p>
+    </section>
+
+    <section class="panel hidden" id="tab-diputats">
+      <h2>Com ha votat cada diputat?</h2>
+      <div id="membersTable"></div>
+    </section>
+
+    <section class="panel hidden" id="tab-grups">
+      <h2>Com ha votat cada grup?</h2>
+      <div id="groupsTable"></div>
+    </section>
+
+
+    <section class="panel hidden compare-panel" id="tab-comparativa">
+      <div class="section-head">
+        <div>
+          <h2>Comparativa de partits</h2>
+          <p class="section-subtitle">Selecciona partits a l’esquerra i consulta les coincidències de vot a la dreta.</p>
+        </div>
+        <div class="compare-filter">
+          <label>Vista</label>
+          <select id="compareMode">
+            <option value="all">Totes</option>
+            <option value="same">Només coincidències</option>
+            <option value="diff">Només discrepàncies</option>
+            <option value="Sí">Coincidències en Sí</option>
+            <option value="No">Coincidències en No</option>
+            <option value="Abstención">Coincidències en abstenció</option>
+            <option value="No vota">Coincidències en no vota</option>
+          </select>
+        </div>
+      </div>
+      <div class="compare-layout">
+        <aside class="compare-sidebar">
+          <label>Partits / grups</label>
+          <div id="partyChecks" class="party-checks"></div>
+        </aside>
+        <div class="compare-content">
+          <div id="compareSummary" class="summary-grid compare-summary"></div>
+          <div id="compareTable"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel hidden" id="tab-iniciativa">
+      <h2>Votació per iniciativa</h2>
+      <div class="initiative-picker">
+        <div>
+          <label>Escriu o selecciona una iniciativa</label>
+          <input id="initiativeInput" list="initiativesList" placeholder="Escriu paraules del títol de la iniciativa..." />
+          <datalist id="initiativesList"></datalist>
+        </div>
+        <button id="clearInitiative">Neteja</button>
+      </div>
+      <div id="initiativeResults"></div>
+    </section>
+
+    <section class="panel hidden" id="tab-votacions">
+      <h2>Llistat de votacions</h2>
+      <div id="votesList"></div>
+    </section>
+  </main>
+
+  <footer>
+    <span id="sourceInfo"></span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
