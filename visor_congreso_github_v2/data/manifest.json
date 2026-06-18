@@ -1,9 +1,11 @@
 {
   "metadata": {
-    "generated_at": "mostra",
-    "source": "Congreso de los Diputados · Open Data · Mostra local",
+    "generated_at": "2026-06-18T11:33:20Z",
+    "source": "Congreso de los Diputados · Open Data · Votaciones · XV Legislatura",
     "source_url": "https://www.congreso.es/es/opendata/votaciones",
-    "note": "Mostra inicial en format per chunks. Executa GitHub Action per completar totes les dades."
+    "start": "2026-04-19",
+    "end": "2026-06-18",
+    "note": "Generat automàticament des dels PDF oficials de detall de votació. Dades partides per mesos per evitar el límit de 100 MB de GitHub."
   },
   "indexes": {
     "groups": [
@@ -377,10 +379,19 @@
     ],
     "sessions": [
       "2025-10-08 · Sessió 136",
+      "2026-04-21 · Sessió 173",
+      "2026-04-22 · Sessió 174",
+      "2026-04-28 · Sessió 175",
+      "2026-04-30 · Sessió 177",
+      "2026-05-19 · Sessió 179",
+      "2026-05-20 · Sessió 180",
+      "2026-05-26 · Sessió 181",
+      "2026-05-28 · Sessió 183",
+      "2026-06-11 · Sessió 185",
       "2026-06-16 · Sessió 186"
     ],
-    "total_votes": 3,
-    "total_member_votes": 1050,
+    "total_votes": 113,
+    "total_member_votes": 39550,
     "last_vote_date": "2026-06-16"
   },
   "chunks": [
@@ -390,18 +401,38 @@
       "file": "chunks/votacions_2025_10.json",
       "votes": 1,
       "member_votes": 350,
-      "bytes": 41728,
+      "bytes": 41844,
       "first_date": "2025-10-08",
       "last_date": "2025-10-08"
     },
     {
       "year": "2026",
+      "month": "04",
+      "file": "chunks/votacions_2026_04.json",
+      "votes": 34,
+      "member_votes": 11900,
+      "bytes": 1383063,
+      "first_date": "2026-04-21",
+      "last_date": "2026-04-30"
+    },
+    {
+      "year": "2026",
+      "month": "05",
+      "file": "chunks/votacions_2026_05.json",
+      "votes": 34,
+      "member_votes": 11900,
+      "bytes": 1388819,
+      "first_date": "2026-05-19",
+      "last_date": "2026-05-28"
+    },
+    {
+      "year": "2026",
       "month": "06",
       "file": "chunks/votacions_2026_06.json",
-      "votes": 2,
-      "member_votes": 700,
-      "bytes": 81616,
-      "first_date": "2026-06-16",
+      "votes": 44,
+      "member_votes": 15400,
+      "bytes": 1792242,
+      "first_date": "2026-06-11",
       "last_date": "2026-06-16"
     }
   ]
