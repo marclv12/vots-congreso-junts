@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-06-25T10:16:03Z",
+    "generated_at": "2026-06-25T14:38:45Z",
     "source": "Congreso de los Diputados · Open Data · Votaciones · XV Legislatura",
     "source_url": "https://www.congreso.es/es/opendata/votaciones",
     "start": "2026-04-26",
@@ -157,11 +157,12 @@
       "2026-06-11 · Sessió 185",
       "2026-06-16 · Sessió 186",
       "2026-06-18 · Sessió 188",
-      "2026-06-23 · Sessió 189"
+      "2026-06-23 · Sessió 189",
+      "2026-06-25 · Sessió 191"
     ],
-    "total_votes": 1950,
-    "total_party_votes": 25281,
-    "last_vote_date": "2026-06-23",
+    "total_votes": 1980,
+    "total_party_votes": 25671,
+    "last_vote_date": "2026-06-25",
     "data_model": "group_only_v7"
   },
   "chunks": [
@@ -469,11 +470,11 @@
       "year": "2026",
       "month": "06",
       "file": "chunks/votacions_2026_06.json",
-      "votes": 73,
-      "party_votes": 949,
-      "bytes": 124113,
+      "votes": 103,
+      "party_votes": 1339,
+      "bytes": 173748,
       "first_date": "2026-06-11",
-      "last_date": "2026-06-23"
+      "last_date": "2026-06-25"
     }
   ]
 }
