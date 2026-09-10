@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "generated_at": "2026-09-09T11:42:19Z",
+    "generated_at": "2026-09-10T11:39:39Z",
     "source": "Congreso de los Diputados · Open Data · Votaciones · XV Legislatura",
     "source_url": "https://www.congreso.es/es/opendata/votaciones",
-    "start": "2026-07-26",
-    "end": "2026-09-09",
+    "start": "2026-07-27",
+    "end": "2026-09-10",
     "note": "Generat automàticament des dels PDF oficials de detall de votació. V7 lleugera: el web publica només vot agregat per partit/grup, amb Grup Mixt separat, i no publica el vot nominal."
   },
   "indexes": {
@@ -160,11 +160,12 @@
       "2026-06-23 · Sessió 189",
       "2026-06-25 · Sessió 191",
       "2026-07-14 · Sessió 192",
-      "2026-07-23 · Sessió 193"
+      "2026-07-23 · Sessió 193",
+      "2026-09-09 · Sessió 195"
     ],
-    "total_votes": 2056,
-    "total_party_votes": 26659,
-    "last_vote_date": "2026-07-23",
+    "total_votes": 2058,
+    "total_party_votes": 26685,
+    "last_vote_date": "2026-09-09",
     "data_model": "group_only_v7"
   },
   "chunks": [
@@ -487,6 +488,16 @@
       "bytes": 142434,
       "first_date": "2026-07-14",
       "last_date": "2026-07-23"
+    },
+    {
+      "year": "2026",
+      "month": "09",
+      "file": "chunks/votacions_2026_09.json",
+      "votes": 2,
+      "party_votes": 26,
+      "bytes": 3712,
+      "first_date": "2026-09-09",
+      "last_date": "2026-09-09"
     }
   ]
 }
