@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "generated_at": "2026-10-02T13:04:50Z",
+    "generated_at": "2026-10-05T15:12:43Z",
     "source": "Congreso de los Diputados · Open Data · Votaciones · XV Legislatura",
     "source_url": "https://www.congreso.es/es/opendata/votaciones",
-    "start": "2026-08-18",
-    "end": "2026-10-02",
+    "start": "2026-08-21",
+    "end": "2026-10-05",
     "note": "Generat automàticament des dels PDF oficials de detall de votació. V7 lleugera: el web publica només vot agregat per partit/grup, amb Grup Mixt separat, i no publica el vot nominal."
   },
   "indexes": {
